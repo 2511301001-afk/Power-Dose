@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PowerDose Supplements | Fuel Your Strength</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#2f3131",
+                        "surface-bright": "#37393a",
+                        "outline-variant": "#4d4632",
+                        "tertiary-fixed": "#e5e2e1",
+                        "on-primary-container": "#705c00",
+                        "primary": "#fff3d6",
+                        "error-container": "#93000a",
+                        "tertiary": "#f7f3f3",
+                        "secondary": "#c9c6c5",
+                        "on-error": "#690005",
+                        "surface-dim": "#121414",
+                        "on-secondary-fixed-variant": "#474646",
+                        "background": "#121414",
+                        "on-error-container": "#ffdad6",
+                        "surface-variant": "#333535",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#d0c6ab",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "on-primary": "#3b2f00",
+                        "secondary-container": "#4a4949",
+                        "tertiary-container": "#dad7d7",
+                        "surface-container-highest": "#333535",
+                        "on-primary-fixed": "#231b00",
+                        "on-background": "#e2e2e2",
+                        "surface": "#121414",
+                        "on-secondary": "#313030",
+                        "primary-fixed-dim": "#ebc300",
+                        "on-secondary-container": "#bab8b7",
+                        "surface-tint": "#ebc300",
+                        "primary-fixed": "#ffe177",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "secondary-fixed-dim": "#c9c6c5",
+                        "inverse-primary": "#715d00",
+                        "primary-container": "#ffd400",
+                        "on-primary-fixed-variant": "#554500",
+                        "on-tertiary-fixed": "#1b1b1c",
+                        "surface-container-high": "#282a2b",
+                        "surface-container": "#1e2020",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "surface-container-lowest": "#0c0f0f",
+                        "inverse-surface": "#e2e2e2",
+                        "on-surface": "#e2e2e2",
+                        "outline": "#999077",
+                        "on-tertiary-container": "#5e5d5d",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary": "#303030",
+                        "surface-container-low": "#1a1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-xl": ["Anton"],
+                        "headline-md": ["Anton"],
+                        "headline-lg": ["Anton"],
+                        "headline-lg-mobile": ["Anton"],
+                        "label-bold": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-xl": ["96px", { "lineHeight": "90px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "48px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "label-bold": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0A0A0A; color: #e2e2e2; }
+        .energy-gradient { background: linear-gradient(135deg, rgba(255, 212, 0, 0.1) 0%, rgba(10, 10, 10, 1) 100%); }
+        .btn-primary { background-color: #FFD400; color: #0A0A0A; border: none; font-family: 'Anton', sans-serif; text-transform: uppercase; transition: transform 0.2s, background-color 0.2s; }
+        .btn-primary:hover { transform: scale(1.02); background-color: #ffe177; }
+        .btn-secondary { background-color: transparent; border: 2px solid #FFD400; color: #FFD400; font-family: 'Anton', sans-serif; text-transform: uppercase; transition: all 0.2s; }
+        .btn-secondary:hover { background-color: rgba(255, 212, 0, 0.1); }
+        .card-panel { background-color: #121212; border: 1px solid #1E1E1E; }
+        .card-panel:hover { border-color: #FFD400; }
+        .input-field { background-color: #1E1E1E; border: 1px solid #2A2A2A; color: #e2e2e2; }
+        .input-field:focus { border-color: #FFD400; outline: none; box-shadow: 0 0 0 1px #FFD400; }
+    </style>
+</head>
+<body class="font-body-md antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-black">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface border-b border-outline-variant flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop transition-all duration-300" id="main-nav">
+<div class="flex items-center gap-8">
+<a class="font-display-xl text-headline-md md:text-headline-lg text-primary tracking-tighter uppercase leading-none" href="/">
+                POWERDOSE
+            </a>
+<div class="hidden lg:flex relative w-64 xl:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="input-field w-full pl-10 pr-4 py-2 font-body-md rounded-DEFAULT transition-all" placeholder="Search supplements..." type="text"/>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-8 font-headline-md text-headline-md uppercase">
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-primary-fixed-dim transition-all duration-200" href="#">Offers</a>
+<a class="text-on-surface-variant hover:text-primary-fixed-dim transition-all duration-200" href="#">Categories</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors scale-105 active:scale-95 lg:hidden">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">search</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors scale-105 active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors scale-105 active:scale-95 relative group">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="absolute -top-2 -right-2 bg-primary-container text-on-primary-container font-label-bold text-[10px] w-5 h-5 flex items-center justify-center rounded-full group-hover:scale-110 transition-transform">3</span>
+</button>
+</div>
+</header>
+<main class="flex-grow pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex items-center px-margin-mobile md:px-margin-desktop py-20 overflow-hidden bg-background">
+<div class="absolute inset-0 energy-gradient opacity-50 z-0"></div>
+<div class="container mx-auto max-w-container-max relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="flex flex-col gap-6 order-2 lg:order-1">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-black border border-primary-container w-fit">
+<span class="w-2 h-2 bg-primary-container rounded-full animate-pulse"></span>
+<span class="font-label-bold text-label-bold text-primary-container uppercase">New Arrival</span>
+</div>
+<h1 class="font-display-xl text-[64px] md:text-display-xl leading-[0.9] text-on-background uppercase tracking-tight">
+                        Fuel Your <br/><span class="text-primary-container">Strength</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Uncompromising quality for relentless performers. Scientifically backed formulations to push you past your limits.
+                    </p>
+<div class="flex flex-wrap gap-4 mt-4">
+<button class="btn-primary font-label-bold text-label-bold px-8 py-4">Shop Now</button>
+<button class="btn-secondary font-label-bold text-label-bold px-8 py-4">View Offers</button>
+</div>
+</div>
+<div class="relative order-1 lg:order-2 aspect-square max-w-[500px] mx-auto lg:ml-auto group">
+<div class="absolute inset-0 bg-primary-container blur-[100px] opacity-20 group-hover:opacity-30 transition-opacity duration-500 rounded-full"></div>
+<img class="relative z-10 w-full h-full object-cover filter contrast-125" data-alt="A highly detailed, dramatic product shot of a premium, black textured tub of whey protein powder, sitting on a dark metallic surface. The scene is illuminated by harsh, high-contrast yellow rim lighting that highlights the gritty texture of the container. A subtle plume of powder dust hangs in the dark background. The aesthetic is raw, industrial, and high-energy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSTGgpmVw5XSome4a0jQs8q-mRI2rg60C_XplloAgaZijft0gEOSxBTF-M0aZ4ntrggVHuJVGlPPekGDSo9JzPputqLuSriWJnhRH2GOsfqllAQRzLTfKKGSnhYZPC5sl_m4mhtGVZwaVpOTzsB0dsEnxXMSlpsSu5OwYXmfkiQmexYSYPgFXqw2H4AjERWFkcOA6EzPIrID3wQGSP7EsbbXot-h0hH6PXJp6QyYdLkdzfF0foFDIfSg"/>
+</div>
+</div>
+</section>
+<!-- Trust Badges -->
+<section class="bg-surface-container-highest py-6 border-y border-outline-variant">
+<div class="container mx-auto max-w-container-max px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-wrap justify-center gap-8 md:gap-16">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container text-3xl">verified</span>
+<span class="font-label-bold text-label-bold uppercase tracking-wider text-on-surface">100% Authentic</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container text-3xl">local_shipping</span>
+<span class="font-label-bold text-label-bold uppercase tracking-wider text-on-surface">Free Delivery</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container text-3xl">science</span>
+<span class="font-label-bold text-label-bold uppercase tracking-wider text-on-surface">Lab Tested</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Shop by Category (Bento-ish) -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface-dim">
+<div class="container mx-auto max-w-container-max">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background uppercase mb-12">Shop by Category</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-gutter auto-rows-[200px]">
+<!-- Whey Protein (Large) -->
+<a class="card-panel group relative overflow-hidden flex flex-col justify-end p-6 col-span-1 md:col-span-2 row-span-2" href="#">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60" data-alt="A macro shot of a scoop of fine chocolate protein powder, partially submerged in a dark, textured bowl. The lighting is low-key, moody, and dramatic, casting deep shadows that emphasize the powder's texture. A subtle yellow accent light catches the edge of the metallic scoop. The overall look is gritty, premium, and industrial." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuKpDqnZZSm7GPh-qRq0RENyChNYfN34WXD6gPvS80EzlLSCGirKjIL3iwbAJkaaovn4ilsrWVG1Kpydk1z-6FJCsrqDEml92vF5v3RrC4eOvTj7E6-D3V8LYdcgz7na7r3T1QxYZiZZYesc2oppTLoX5bR_hrH77E6ALPsMcguegBm8zlyD4BE1KO-3g_rzWASnaihwL0me1IXIXfUM0dSbyAGn23nzWOHsRX5SET3RT8pmqXDR6hzw"/>
+<div class="relative z-20 flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-2">fitness_center</span>
+<h3 class="font-headline-md text-headline-md uppercase text-on-background group-hover:text-primary-container transition-colors">Whey Protein</h3>
+<span class="font-label-bold text-label-bold text-on-surface-variant flex items-center gap-1 group-hover:gap-2 transition-all">Shop Now <span class="material-symbols-outlined text-sm">arrow_forward</span></span>
+</div>
+</a>
+<!-- Pre-Workout -->
+<a class="card-panel group relative overflow-hidden flex flex-col justify-end p-6" href="#">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10"></div>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-yellow-900/20 to-black opacity-0 group-hover:opacity-100 transition-opacity z-0"></div>
+<div class="relative z-20">
+<span class="material-symbols-outlined text-primary-container text-3xl mb-2">bolt</span>
+<h3 class="font-headline-md text-xl uppercase text-on-background group-hover:text-primary-container transition-colors">Pre-Workout</h3>
+</div>
+</a>
+<!-- Mass Gainer -->
+<a class="card-panel group relative overflow-hidden flex flex-col justify-end p-6" href="#">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10"></div>
+<div class="relative z-20">
+<span class="material-symbols-outlined text-primary-container text-3xl mb-2">monitor_weight</span>
+<h3 class="font-headline-md text-xl uppercase text-on-background group-hover:text-primary-container transition-colors">Mass Gainer</h3>
+</div>
+</a>
+<!-- Vitamins -->
+<a class="card-panel group relative overflow-hidden flex flex-col justify-end p-6" href="#">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10"></div>
+<div class="relative z-20">
+<span class="material-symbols-outlined text-primary-container text-3xl mb-2">medication</span>
+<h3 class="font-headline-md text-xl uppercase text-on-background group-hover:text-primary-container transition-colors">Vitamins</h3>
+</div>
+</a>
+<!-- Accessories -->
+<a class="card-panel group relative overflow-hidden flex flex-col justify-end p-6 md:col-span-2 lg:col-span-1" href="#">
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-40" data-alt="A sleek, matte black shaker bottle with a prominent yellow logo, resting on a dark gym floor tile. Dramatic, cinematic lighting cuts across the scene, highlighting water droplets on the exterior of the bottle. The aesthetic is modern, athletic, and intense, with deep blacks and sharp yellow accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW4U9qWg_XkaqSKsUVja_7UsMQMQ9KRKObXeKDckASsXGbVKbJQCooKAm5vp2iqYUYlWwOviEWXJBuJf4LPGihhNlbdt7ldzmkAbYgTzwpsfgKjfOsAwq_BXLARwQyi15wHk7am5-y8NRMw0816AR9ByjD1yOZsVi490uhXdwLrfmKD-il3VxWPOPk7vb-T-ung9_oBo6i8xdQUT5uRRxn37kKvb8lW1kOe3wO7bs-T5O59zdtbDv5Kw"/>
+<div class="relative z-20">
+<span class="material-symbols-outlined text-primary-container text-3xl mb-2">sports_gymnastics</span>
+<h3 class="font-headline-md text-xl uppercase text-on-background group-hover:text-primary-container transition-colors">Accessories</h3>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Promo Banner -->
+<section class="bg-primary-container py-4 overflow-hidden relative">
+<div class="whitespace-nowrap flex gap-8 items-center animate-[marquee_20s_linear_infinite]">
+<!-- Repeated content for marquee effect -->
+<div class="flex items-center gap-8 font-display-xl text-4xl text-black uppercase tracking-tight">
+<span>MEGA SALE - UP TO 40% OFF</span>
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span>RESTOCK YOUR ARSENAL</span>
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span>MEGA SALE - UP TO 40% OFF</span>
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span>RESTOCK YOUR ARSENAL</span>
+</div>
+</div>
+<style>
+                @keyframes marquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+            </style>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant py-16 px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-start gap-8">
+<div class="flex flex-col gap-6 max-w-sm">
+<a class="font-headline-lg text-headline-lg text-primary uppercase tracking-tighter leading-none" href="/">
+                POWERDOSE
+            </a>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Uncompromising strength. Scientifically backed supplements for the relentless.
+            </p>
+<div class="flex gap-4">
+<a class="text-primary-container hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">public</span>
+</a>
+<a class="text-primary-container hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">photo_camera</span>
+</a>
+<a class="text-primary-container hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">play_circle</span>
+</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-headline-md text-xl uppercase text-primary-container">Support</h4>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Shipping Info</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Contact Us</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Returns</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-headline-md text-xl uppercase text-primary-container">Legal</h4>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-4 w-full md:w-auto">
+<h4 class="font-headline-md text-xl uppercase text-primary-container">Newsletter</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Join the elite. Get exclusive offers.</p>
+<form class="flex mt-2">
+<input class="input-field px-4 py-2 font-label-bold text-label-bold uppercase w-full md:w-48" placeholder="ENTER EMAIL" required="" type="email"/>
+<button class="btn-primary px-4 py-2 font-label-bold text-label-bold" type="submit">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+</div>
+<div class="w-full pt-8 mt-8 border-t border-surface-variant flex justify-between items-center text-on-surface-variant font-label-bold text-xs uppercase tracking-wider col-span-full md:w-full">
+<span>© 2024 POWERDOSE SUPPLEMENTS. UNCOMPROMISING STRENGTH.</span>
+</div>
+</footer>
+<script>
+        // Simple nav scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-[0_4px_30px_rgba(0,0,0,0.5)]', 'border-primary-container/20');
+            } else {
+                nav.classList.remove('shadow-[0_4px_30px_rgba(0,0,0,0.5)]', 'border-primary-container/20');
+            }
+        });
+    </script>
+</body></html>

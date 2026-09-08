@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-surface: #121414;
+  --bg-surface-dim: #0c0f0f;
+  --bg-container: #1e2020;
+  --bg-container-high: #282a2b;
+  --bg-container-highest: #333535;
+  --primary-yellow: #ffd400;
+  --primary-yellow-hover: #ffe177;
+  --on-primary: #3b2f00;
+  --text-main: #e2e2e2;
+  --text-muted: #999077;
+  --border-dark: #2a2a2a;
+  --border-yellow: #ffd400;
+  --font-display: 'Anton', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Helpers */
+.font-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0f0f;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-yellow);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary-yellow);
+  color: #0c0f0f;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 0px transparent;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-yellow-hover);
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(255, 212, 0, 0.4);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-yellow);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  padding: 0.75rem 1.75rem;
+  border: 2px solid var(--primary-yellow);
+  border-radius: 0px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 212, 0, 0.1);
+  transform: scale(1.02);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-dark);
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--primary-yellow);
+  color: var(--primary-yellow);
+}
+
+/* Card Surfaces */
+.card-surface {
+  background-color: var(--bg-container);
+  border: 1px solid var(--border-dark);
+  border-radius: 0px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-surface:hover {
+  border-color: var(--primary-yellow);
+}
+
+/* Badge */
+.badge-yellow {
+  background: #0c0f0f;
+  border: 1px solid var(--primary-yellow);
+  color: var(--primary-yellow);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
+
+/* Input Fields */
+.input-field {
+  background-color: var(--bg-container);
+  border: 1px solid var(--border-dark);
+  color: var(--text-main);
+  padding: 0.8rem 1rem;
+  border-radius: 0px;
+  font-family: var(--font-body);
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: var(--primary-yellow);
+  box-shadow: 0 0 8px rgba(255, 212, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes pulseYellow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-yellow {
+  animation: pulseYellow 1.8s infinite ease-in-out;
+}

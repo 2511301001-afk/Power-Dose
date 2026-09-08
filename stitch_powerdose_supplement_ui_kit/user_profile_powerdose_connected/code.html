@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PowerDose - User Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#2f3131",
+                        "surface-bright": "#37393a",
+                        "outline-variant": "#4d4632",
+                        "tertiary-fixed": "#e5e2e1",
+                        "on-primary-container": "#705c00",
+                        "primary": "#fff3d6",
+                        "error-container": "#93000a",
+                        "tertiary": "#f7f3f3",
+                        "secondary": "#c9c6c5",
+                        "on-error": "#690005",
+                        "surface-dim": "#121414",
+                        "on-secondary-fixed-variant": "#474646",
+                        "background": "#121414",
+                        "on-error-container": "#ffdad6",
+                        "surface-variant": "#333535",
+                        "error": "#ffb4ab",
+                        "on-surface-variant": "#d0c6ab",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "on-primary": "#3b2f00",
+                        "secondary-container": "#4a4949",
+                        "tertiary-container": "#dad7d7",
+                        "surface-container-highest": "#333535",
+                        "on-primary-fixed": "#231b00",
+                        "on-background": "#e2e2e2",
+                        "surface": "#121414",
+                        "on-secondary": "#313030",
+                        "primary-fixed-dim": "#ebc300",
+                        "on-secondary-container": "#bab8b7",
+                        "surface-tint": "#ebc300",
+                        "primary-fixed": "#ffe177",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "secondary-fixed-dim": "#c9c6c5",
+                        "inverse-primary": "#715d00",
+                        "primary-container": "#ffd400",
+                        "on-primary-fixed-variant": "#554500",
+                        "on-tertiary-fixed": "#1b1b1c",
+                        "surface-container-high": "#282a2b",
+                        "surface-container": "#1e2020",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "surface-container-lowest": "#0c0f0f",
+                        "inverse-surface": "#e2e2e2",
+                        "on-surface": "#e2e2e2",
+                        "outline": "#999077",
+                        "on-tertiary-container": "#5e5d5d",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary": "#303030",
+                        "surface-container-low": "#1a1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-xl": ["Anton"],
+                        "headline-md": ["Anton"],
+                        "headline-lg": ["Anton"],
+                        "headline-lg-mobile": ["Anton"],
+                        "label-bold": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-xl": ["96px", {"lineHeight": "90px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "48px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "32px", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glitch-hover:hover {
+            animation: glitch 0.2s cubic-bezier(.25, .46, .45, .94) both infinite;
+            background-color: #ebc300;
+        }
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface text-primary dark:text-primary font-headline-md text-headline-md uppercase fixed top-0 w-full z-50 border-b border-outline-variant flex justify-between items-center h-20 px-margin-desktop">
+<div class="flex items-center gap-8">
+<a class="font-display-xl text-headline-md text-primary tracking-tighter" href="{{DATA:SCREEN:SCREEN_9}}">POWERDOSE</a>
+<div class="hidden md:flex gap-6 items-center pt-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:text-primary-fixed-dim duration-200" href="{{DATA:SCREEN:SCREEN_6}}">Explore</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:text-primary-fixed-dim duration-200" href="{{DATA:SCREEN:SCREEN_7}}">Offers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:text-primary-fixed-dim duration-200" href="{{DATA:SCREEN:SCREEN_8}}">Categories</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<a class="scale-105 active:scale-95 text-on-surface-variant hover:text-primary-fixed-dim transition-all duration-200 inline-block" href="{{DATA:SCREEN:SCREEN_2}}">
+<span class="material-symbols-outlined block" data-icon="shopping_cart">shopping_cart</span>
+</a>
+<a class="scale-105 active:scale-95 text-primary font-bold border-b-2 border-primary pb-1 inline-block" href="{{DATA:SCREEN:SCREEN_5}}">
+<span class="material-symbols-outlined block" data-icon="account_circle">account_circle</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow pt-20 flex flex-col md:flex-row w-full max-w-container-max mx-auto">
+<!-- Sidebar Navigation (Desktop) -->
+<aside class="w-full md:w-64 bg-surface-container-lowest dark:bg-surface-container-lowest border-r border-outline-variant md:sticky top-20 flex-shrink-0" style="height: calc(100vh - 80px);">
+<div class="flex flex-col py-8">
+<div class="px-4 mb-6">
+<h2 class="font-headline-md text-headline-md text-primary">ACCOUNT</h2>
+</div>
+<nav class="flex flex-col gap-1 font-label-bold text-label-bold uppercase">
+<!-- Active Item -->
+<a class="bg-primary-container text-on-primary-container border-l-4 border-primary px-4 py-3 flex items-center gap-3 transition-all duration-200 ease-in-out hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+                        My Profile
+                    </a>
+<!-- Inactive Items -->
+<a class="text-on-surface-variant hover:bg-surface-variant px-4 py-3 flex items-center gap-3 transition-colors transition-all duration-200 ease-in-out hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+                        My Orders
+                    </a>
+<a class="text-on-surface-variant hover:bg-surface-variant px-4 py-3 flex items-center gap-3 transition-colors transition-all duration-200 ease-in-out hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+                        Order History
+                    </a>
+<a class="text-on-surface-variant hover:bg-surface-variant px-4 py-3 flex items-center gap-3 transition-colors transition-all duration-200 ease-in-out hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="home_work">home_work</span>
+                        Addresses
+                    </a>
+<a class="text-on-surface-variant hover:bg-surface-variant px-4 py-3 flex items-center gap-3 transition-colors transition-all duration-200 ease-in-out hover:bg-surface-container-high" href="#">
+<span class="material-symbols-outlined" data-icon="payment">payment</span>
+                        Payment Methods
+                    </a>
+<a class="text-on-surface-variant hover:bg-surface-variant px-4 py-3 flex items-center gap-3 transition-colors transition-all duration-200 ease-in-out mt-auto hover:bg-surface-container-high text-error" href="{{DATA:SCREEN:SCREEN_9}}">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                        Logout
+                    </a>
+</nav>
+</div>
+</aside>
+<!-- Main Canvas -->
+<section class="flex-grow p-margin-mobile md:p-margin-desktop overflow-y-auto">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase mb-12 border-l-4 border-primary pl-4 tracking-wider">Profile Overview</h1>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Profile Card -->
+<div class="md:col-span-12 lg:col-span-8 bg-[#121212] border border-[#1E1E1E] p-8 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+<!-- Decor element -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full pointer-events-none"></div>
+<div class="relative">
+<img class="w-32 h-32 rounded-full border-4 border-primary object-cover shadow-[0_0_15px_rgba(255,212,0,0.3)]" data-alt="A gritty, high-contrast portrait of a muscular athlete bathed in dramatic rim lighting against a pitch-black background, shot in a cinematic style perfect for a premium fitness brand. The subject looks determined, highlighting raw power and intensity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu68GVpAxSRjFZOVp9s-S9yfXsdGYWv-AUb-V2771j_UpbVdH_xZKQ9o1ZWNltc9iT6fUyMas0Xm_p7fbjePKzOKXtS3w284IdYxR5tj0q7z57wz5ksfuCRf0eUoUMHIh34uAAIR5_ZopUiffmSob_vt0uOFVqqpyDhHcATtg69HAVhhqOapSEFLvHPCkn-uhEX2fRyLgw-gEeiicCaCiDJU96Zqg0Q6OBccOGe78yezrCiKMyRrk23Q"/>
+<div class="absolute -bottom-2 -right-2 bg-black border border-primary text-primary font-label-bold text-label-bold px-2 py-1 uppercase rounded-sm">Elite</div>
+</div>
+<div class="flex-grow text-center md:text-left">
+<h2 class="font-headline-md text-headline-md uppercase mb-2">Jack Hammer</h2>
+<p class="text-on-surface-variant mb-4 font-body-lg text-body-lg">jack.hammer@powerdose.example.com</p>
+<div class="flex flex-col md:flex-row gap-4 items-center justify-center md:justify-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="bolt" data-weight="fill">bolt</span>
+<span class="font-label-bold text-label-bold uppercase text-on-surface-variant">Power Points:</span>
+<span class="font-headline-md text-headline-md text-primary">2,450</span>
+</div>
+</div>
+</div>
+<div class="self-stretch flex items-center justify-center border-t md:border-t-0 md:border-l border-[#1E1E1E] pt-6 md:pt-0 md:pl-6 w-full md:w-auto">
+<button class="bg-primary-container text-on-primary-fixed font-label-bold text-label-bold uppercase px-8 py-4 glitch-hover w-full md:w-auto text-center transition-transform transform hover:scale-105 active:scale-95">
+                            Edit Profile
+                        </button>
+</div>
+</div>
+<!-- Recent Activity / Stats -->
+<div class="md:col-span-12 lg:col-span-4 bg-[#121212] border border-[#1E1E1E] p-8 flex flex-col justify-between relative overflow-hidden group">
+<!-- Energy Gradient -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+<h3 class="font-headline-md text-headline-md uppercase text-on-surface-variant mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="trending_up">trending_up</span>
+                        Monthly Intensity
+                    </h3>
+<div class="space-y-6 relative z-10">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label-bold text-label-bold uppercase text-on-surface-variant">Orders This Month</span>
+<span class="font-label-bold text-label-bold text-primary">4</span>
+</div>
+<!-- Segmented Tech Bar -->
+<div class="flex gap-[2px] h-3 w-full bg-[#1E1E1E]">
+<div class="bg-primary h-full w-[10%]"></div>
+<div class="bg-primary h-full w-[10%]"></div>
+<div class="bg-primary h-full w-[10%]"></div>
+<div class="bg-primary h-full w-[10%]"></div>
+<div class="bg-[#2A2A2A] h-full w-[10%]"></div>
+<div class="bg-[#2A2A2A] h-full w-[10%]"></div>
+<div class="bg-[#2A2A2A] h-full w-[10%]"></div>
+<div class="bg-[#2A2A2A] h-full w-[10%]"></div>
+<div class="bg-[#2A2A2A] h-full w-[10%]"></div>
+<div class="bg-[#2A2A2A] h-full w-[10%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Order Tracker -->
+<div class="md:col-span-12 bg-[#121212] border border-[#1E1E1E] p-8 mt-8 relative">
+<!-- Subtle corner accent -->
+<div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-primary"></div>
+<div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-primary"></div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+<h3 class="font-headline-md text-headline-md uppercase">Active Mission: <span class="text-primary">#PD-8842-X</span></h3>
+<div class="bg-black border border-primary px-3 py-1 font-label-bold text-label-bold uppercase text-primary">En Route</div>
+</div>
+<!-- Tracker UI -->
+<div class="relative w-full py-8 mt-4">
+<!-- Background Line -->
+<div class="absolute top-1/2 left-0 w-full h-1 bg-[#1E1E1E] -translate-y-1/2 z-0 hidden md:block"></div>
+<!-- Progress Line -->
+<div class="absolute top-1/2 left-0 w-[66%] h-1 bg-primary -translate-y-1/2 z-0 hidden md:block shadow-[0_0_10px_rgba(255,212,0,0.5)]"></div>
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
+<!-- Stage 1 -->
+<div class="flex flex-col items-center gap-3 w-full md:w-auto">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-black border-4 border-surface shadow-[0_0_15px_rgba(255,212,0,0.4)]">
+<span class="material-symbols-outlined" data-icon="inventory">inventory</span>
+</div>
+<span class="font-label-bold text-label-bold uppercase text-primary text-center">Processing</span>
+</div>
+<!-- Stage 2 -->
+<div class="flex flex-col items-center gap-3 w-full md:w-auto">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-black border-4 border-surface shadow-[0_0_15px_rgba(255,212,0,0.4)]">
+<span class="material-symbols-outlined" data-icon="package">package</span>
+</div>
+<span class="font-label-bold text-label-bold uppercase text-primary text-center">Packed</span>
+</div>
+<!-- Stage 3 (Active) -->
+<div class="flex flex-col items-center gap-3 w-full md:w-auto">
+<div class="w-14 h-14 rounded-full bg-black border-2 border-primary flex items-center justify-center text-primary relative">
+<!-- Pulse ring -->
+<div class="absolute inset-0 rounded-full border border-primary animate-ping opacity-75"></div>
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<span class="font-label-bold text-label-bold uppercase text-primary text-center">In Transit</span>
+</div>
+<!-- Stage 4 -->
+<div class="flex flex-col items-center gap-3 w-full md:w-auto">
+<div class="w-12 h-12 rounded-full bg-[#1E1E1E] flex items-center justify-center text-on-surface-variant border-4 border-surface">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+</div>
+<span class="font-label-bold text-label-bold uppercase text-on-surface-variant text-center">Delivered</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest text-primary dark:text-primary font-body-md text-body-md w-full mt-auto border-t border-outline-variant py-16 px-margin-desktop flex flex-col md:flex-row justify-between items-start gap-8">
+<div>
+<div class="font-headline-lg text-headline-lg text-primary uppercase mb-4">POWERDOSE</div>
+<p class="text-on-surface-variant max-w-sm">© 2024 POWERDOSE SUPPLEMENTS. UNCOMPROMISING STRENGTH.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-8 md:gap-12">
+<a class="text-on-surface-variant hover:text-primary hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary hover:text-primary transition-colors" href="#">Shipping Info</a>
+<a class="text-on-surface-variant hover:text-primary hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+</footer>
+</body></html>
