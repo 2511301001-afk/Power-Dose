@@ -90,7 +90,7 @@ export default function CategoryPage() {
           <div className="card-surface" style={{ padding: '1.25rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
               <span className="font-display" style={{ fontSize: '1rem', color: 'var(--primary-yellow)' }}>MAX PRICE</span>
-              <span style={{ fontWeight: 800, color: '#fff' }}>${maxPrice}</span>
+              <span style={{ fontWeight: 800, color: '#fff' }}>₹{maxPrice}</span>
             </div>
             <input
               type="range"
@@ -238,7 +238,7 @@ export default function CategoryPage() {
 
                   <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.75rem', borderTop: '1px solid #2a2a2a' }}>
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', color: 'var(--primary-yellow)' }}>
-                      ${prod.price}
+                      ₹{prod.price}
                     </div>
                     <button onClick={() => addToCart(prod)} className="btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>
                       + ADD TO CART
@@ -259,7 +259,7 @@ export default function CategoryPage() {
                     <div style={{ maxWidth: '240px' }}><DoseBar level={prod.doseIntensity} /></div>
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.75rem' }}>
-                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--primary-yellow)' }}>${prod.price}</div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', color: 'var(--primary-yellow)' }}>₹{prod.price}</div>
                     <button onClick={() => addToCart(prod)} className="btn-primary" style={{ padding: '0.6rem 1.25rem' }}>+ ADD TO CART</button>
                   </div>
                 </div>

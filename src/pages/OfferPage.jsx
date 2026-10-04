@@ -144,10 +144,10 @@ export default function OfferPage() {
             <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '1rem', borderTop: '1px solid #2a2a2a' }}>
               <div>
                 <span className="font-display" style={{ fontSize: '1.8rem', color: 'var(--primary-yellow)' }}>
-                  ${offer.salePrice}
+                  ₹{offer.salePrice}
                 </span>
                 <span style={{ fontSize: '1rem', color: 'var(--text-muted)', textDecoration: 'line-through', marginLeft: '0.5rem' }}>
-                  ${offer.originalPrice}
+                  ₹{offer.originalPrice}
                 </span>
               </div>
               <button

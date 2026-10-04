@@ -110,7 +110,7 @@ export default function UserProfilePage() {
           <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.6 }}>
             <div>• ESTIMATED DELIVERY: {userInfo.activeMission.estDelivery}</div>
             <div>• ITEMS INCLUDED: {userInfo.activeMission.itemsCount} FORMULAS</div>
-            <div>• TOTAL PAID: ${userInfo.activeMission.totalAmount}</div>
+            <div>• TOTAL PAID: ₹{userInfo.activeMission.totalAmount}</div>
           </div>
 
           <button onClick={() => setActiveTab('checkout')} className="btn-primary" style={{ width: '100%', padding: '0.75rem' }}>
@@ -164,7 +164,7 @@ export default function UserProfilePage() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                 <span className="badge-yellow">{sub.status}</span>
                 <span className="font-display" style={{ fontSize: '1.3rem', color: 'var(--primary-yellow)' }}>
-                  ${sub.price}
+                  ₹{sub.price}
                 </span>
                 <button
                   onClick={() => showToast('SUBSCRIPTION UPDATED', 'Next delivery paused for 15 days.')}

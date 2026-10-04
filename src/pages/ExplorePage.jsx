@@ -154,7 +154,7 @@ export default function ExplorePage() {
               <img src={p.image} alt={p.name} style={{ width: '60px', height: '60px', objectFit: 'cover' }} />
               <div>
                 <div className="font-display" style={{ fontSize: '1.1rem' }}>{p.name}</div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--primary-yellow)' }}>${p.price}</div>
+                <div style={{ fontSize: '0.85rem', color: 'var(--primary-yellow)' }}>₹{p.price}</div>
               </div>
               <button
                 onClick={() => addToCart(p)}

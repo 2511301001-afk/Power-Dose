@@ -52,7 +52,7 @@ export default function Navbar() {
           gap: '1.5rem'
         }}
       >
-        <span>⚡ FREE SPEED EXPRESS SHIPPING ON ORDERS OVER $100</span>
+        <span>⚡ FREE SPEED EXPRESS SHIPPING ON ORDERS OVER ₹100</span>
         <span style={{ opacity: 0.6 }}>|</span>
         <span>USE CODE <strong style={{ textDecoration: 'underline' }}>POWER20</strong> FOR 20% OFF</span>
       </div>

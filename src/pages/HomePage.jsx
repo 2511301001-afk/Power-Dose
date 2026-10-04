@@ -207,11 +207,11 @@ export default function HomePage() {
               <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '1rem', borderTop: '1px solid #2a2a2a' }}>
                 <div>
                   <span style={{ fontSize: '1.4rem', fontFamily: 'var(--font-display)', color: 'var(--primary-yellow)' }}>
-                    ${prod.price}
+                    ₹{prod.price}
                   </span>
                   {prod.originalPrice && (
                     <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', textDecoration: 'line-through', marginLeft: '0.5rem' }}>
-                      ${prod.originalPrice}
+                      ₹{prod.originalPrice}
                     </span>
                   )}
                 </div>

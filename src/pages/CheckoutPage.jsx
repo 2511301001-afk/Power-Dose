@@ -264,7 +264,7 @@ export default function CheckoutPage() {
                       <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Qty: {item.quantity}</div>
                     </div>
                     <div style={{ fontWeight: 800, color: 'var(--primary-yellow)' }}>
-                      ${(item.product.price * item.quantity).toFixed(2)}
+                      ₹{(item.product.price * item.quantity).toFixed(2)}
                     </div>
                   </div>
                 ))}
@@ -273,21 +273,21 @@ export default function CheckoutPage() {
               <div style={{ borderTop: '1px solid #2a2a2a', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.9rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-muted)' }}>
                   <span>Subtotal</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>₹{subtotal.toFixed(2)}</span>
                 </div>
                 {discountAmount > 0 && (
                   <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--primary-yellow)' }}>
                     <span>Promo Discount</span>
-                    <span>-${discountAmount.toFixed(2)}</span>
+                    <span>-₹{discountAmount.toFixed(2)}</span>
                   </div>
                 )}
                 <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-muted)' }}>
                   <span>Shipping</span>
-                  <span>{shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`}</span>
+                  <span>{shipping === 0 ? 'FREE' : `₹${shipping.toFixed(2)}`}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.4rem', fontFamily: 'var(--font-display)', borderTop: '1px solid #2a2a2a', paddingTop: '0.75rem', marginTop: '0.5rem' }}>
                   <span>TOTAL</span>
-                  <span style={{ color: 'var(--primary-yellow)' }}>${total.toFixed(2)}</span>
+                  <span style={{ color: 'var(--primary-yellow)' }}>₹{total.toFixed(2)}</span>
                 </div>
               </div>
 

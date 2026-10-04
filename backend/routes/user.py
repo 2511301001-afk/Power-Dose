@@ -41,14 +41,14 @@ async def get_admin_stats():
     stats = await db.admin_stats.find_one({}, {"_id": 0})
     if not stats:
         return {
-            "totalRevenue": "$128,450.00",
+            "totalRevenue": "₹128,450.00",
             "revenueGrowth": "+24.5%",
             "activeOrders": 142,
             "newCustomers": 892,
             "lowStockAlerts": 3,
             "topMovers": [
-                { "name": "TITANIUM WHEY ISOLATE 5LBS", "category": "Whey", "sold": 1420, "revenue": "$106,486.00", "stock": 42, "status": "IN STOCK" },
-                { "name": "NUCLEAR PRE-WORKOUT IGNITER", "category": "Pre-Workout", "sold": 980, "revenue": "$48,990.00", "stock": 18, "status": "LOW STOCK" }
+                { "name": "TITANIUM WHEY ISOLATE 5LBS", "category": "Whey", "sold": 1420, "revenue": "₹106,486.00", "stock": 42, "status": "IN STOCK" },
+                { "name": "NUCLEAR PRE-WORKOUT IGNITER", "category": "Pre-Workout", "sold": 980, "revenue": "₹48,990.00", "stock": 18, "status": "LOW STOCK" }
             ],
             "recentOrders": []
         }

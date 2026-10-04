@@ -16,7 +16,7 @@ export default function AdminPanelPage() {
       id: 'PD-' + Math.floor(9922 + Math.random() * 100),
       customer: newCustomer,
       items: newItemName,
-      amount: '$' + Number(newAmount).toFixed(2),
+      amount: '₹' + Number(newAmount).toFixed(2),
       status: 'Processing',
       date: 'Just Now'
     };
@@ -190,7 +190,7 @@ export default function AdminPanelPage() {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)' }}>TOTAL AMOUNT ($)</label>
+                <label style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)' }}>TOTAL AMOUNT (₹)</label>
                 <input
                   type="number"
                   placeholder="74.99"

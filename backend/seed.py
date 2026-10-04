@@ -248,20 +248,20 @@ USER_PROFILE = {
 }
 
 ADMIN_STATS = {
-  "totalRevenue": "$128,450.00",
+  "totalRevenue": "₹128,450.00",
   "revenueGrowth": "+24.5%",
   "activeOrders": 142,
   "newCustomers": 892,
   "lowStockAlerts": 3,
   "topMovers": [
-    { "name": "TITANIUM WHEY ISOLATE 5LBS", "category": "Whey", "sold": 1420, "revenue": "$106,486.00", "stock": 42, "status": "IN STOCK" },
-    { "name": "NUCLEAR PRE-WORKOUT IGNITER", "category": "Pre-Workout", "sold": 980, "revenue": "$48,990.00", "stock": 18, "status": "LOW STOCK" },
-    { "name": "PURE CREATINE MONOHYDRATE", "category": "Pre-Workout", "sold": 850, "revenue": "$25,491.50", "stock": 85, "status": "IN STOCK" },
-    { "name": "ANABOLIC MASS GAINER XTREME", "category": "Mass Gainer", "sold": 410, "revenue": "$26,645.90", "stock": 25, "status": "IN STOCK" }
+    { "name": "TITANIUM WHEY ISOLATE 5LBS", "category": "Whey", "sold": 1420, "revenue": "₹106,486.00", "stock": 42, "status": "IN STOCK" },
+    { "name": "NUCLEAR PRE-WORKOUT IGNITER", "category": "Pre-Workout", "sold": 980, "revenue": "₹48,990.00", "stock": 18, "status": "LOW STOCK" },
+    { "name": "PURE CREATINE MONOHYDRATE", "category": "Pre-Workout", "sold": 850, "revenue": "₹25,491.50", "stock": 85, "status": "IN STOCK" },
+    { "name": "ANABOLIC MASS GAINER XTREME", "category": "Mass Gainer", "sold": 410, "revenue": "₹26,645.90", "stock": 25, "status": "IN STOCK" }
   ],
   "recentOrders": [
-    { "id": "PD-9921", "customer": "Alex Vance", "items": "2x Whey Isolate, 1x Creatine", "amount": "$179.97", "status": "Processing", "date": "10 Mins Ago" },
-    { "id": "PD-9920", "customer": "Sarah Jenkins", "items": "1x Pre-Workout Igniter", "amount": "$49.99", "status": "Shipped", "date": "35 Mins Ago" }
+    { "id": "PD-9921", "customer": "Alex Vance", "items": "2x Whey Isolate, 1x Creatine", "amount": "₹179.97", "status": "Processing", "date": "10 Mins Ago" },
+    { "id": "PD-9920", "customer": "Sarah Jenkins", "items": "1x Pre-Workout Igniter", "amount": "₹49.99", "status": "Shipped", "date": "35 Mins Ago" }
   ]
 }
 
