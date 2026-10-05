@@ -5,7 +5,7 @@ import logging
 
 from backend.config import PORT, HOST
 from backend.database import connect_to_mongo, close_mongo_connection
-from backend.routes import products, categories, articles, offers, orders, user
+from backend.routes import products, categories, articles, offers, orders, user, auth
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("powerdose_backend")
@@ -49,6 +49,7 @@ app.include_router(articles.router)
 app.include_router(offers.router)
 app.include_router(orders.router)
 app.include_router(user.router)
+app.include_router(auth.router)
 
 @app.get("/", tags=["Health Check"])
 async def root():

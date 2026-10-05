@@ -7,6 +7,7 @@ export default function Navbar() {
     setActiveTab,
     isConnected,
     setIsConnected,
+    logout,
     totalItemsCount,
     setIsCartOpen,
     isSearchOpen,
@@ -47,7 +48,7 @@ export default function Navbar() {
           letterSpacing: '0.08em',
           textTransform: 'uppercase',
           display: 'flex',
-          justify: 'center',
+          justifyContent: 'center',
           alignItems: 'center',
           gap: '1.5rem'
         }}
@@ -124,7 +125,7 @@ export default function Navbar() {
                   background: isActive ? 'var(--bg-container-high)' : 'transparent',
                   color: isActive ? 'var(--primary-yellow)' : 'var(--text-main)',
                   border: isActive ? '1px solid var(--primary-yellow)' : '1px solid transparent',
-                  padding: '0.5rem 1rem',
+                  padding: '0.5rem 0.9rem',
                   fontFamily: 'var(--font-display)',
                   fontSize: '0.95rem',
                   cursor: 'pointer',
@@ -157,7 +158,7 @@ export default function Navbar() {
               }}
               className="input-field"
               style={{
-                width: '180px',
+                width: '160px',
                 padding: '0.4rem 0.8rem 0.4rem 2.2rem',
                 fontSize: '0.85rem'
               }}
@@ -177,33 +178,82 @@ export default function Navbar() {
             </span>
           </div>
 
-          {/* User Connection Switcher */}
-          <button
-            onClick={() => setIsConnected(!isConnected)}
-            title={isConnected ? 'Connected as Jack Hammer (Click to switch to Guest)' : 'Guest Mode (Click to connect)'}
-            style={{
-              background: isConnected ? 'rgba(255, 212, 0, 0.1)' : 'transparent',
-              border: isConnected ? '1px solid var(--primary-yellow)' : '1px solid var(--border-dark)',
-              color: isConnected ? 'var(--primary-yellow)' : 'var(--text-muted)',
-              padding: '0.45rem 0.75rem',
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.4rem'
-            }}
-          >
-            <span
-              style={{
-                width: '8px',
-                height: '8px',
-                borderRadius: '50%',
-                backgroundColor: isConnected ? 'var(--primary-yellow)' : '#666'
-              }}
-            />
-            {isConnected ? 'CONNECTED' : 'GUEST'}
-          </button>
+          {/* Login / Signup or User Profile actions */}
+          {isConnected ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <button
+                onClick={() => setActiveTab('profile')}
+                style={{
+                  background: 'rgba(255, 212, 0, 0.1)',
+                  border: '1px solid var(--primary-yellow)',
+                  color: 'var(--primary-yellow)',
+                  padding: '0.45rem 0.75rem',
+                  fontSize: '0.8rem',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.4rem'
+                }}
+              >
+                <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>account_circle</span>
+                {user?.name?.split(' ')[0] || 'ATHLETE'}
+              </button>
+
+              <button
+                onClick={logout}
+                title="Log out session"
+                style={{
+                  background: 'transparent',
+                  border: '1px solid var(--border-dark)',
+                  color: 'var(--text-muted)',
+                  padding: '0.45rem 0.6rem',
+                  fontSize: '0.75rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+              >
+                <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>logout</span>
+              </button>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <button
+                onClick={() => setActiveTab('login')}
+                style={{
+                  background: activeTab === 'login' ? 'var(--bg-container-high)' : 'transparent',
+                  border: '1px solid var(--border-dark)',
+                  color: activeTab === 'login' ? 'var(--primary-yellow)' : 'var(--text-main)',
+                  padding: '0.45rem 0.8rem',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-display)',
+                  letterSpacing: '0.05em'
+                }}
+              >
+                LOGIN
+              </button>
+
+              <button
+                onClick={() => setActiveTab('signup')}
+                style={{
+                  background: activeTab === 'signup' ? 'var(--primary-yellow-hover)' : 'var(--primary-yellow)',
+                  border: 'none',
+                  color: '#0c0f0f',
+                  padding: '0.45rem 0.85rem',
+                  fontSize: '0.8rem',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-display)',
+                  letterSpacing: '0.05em'
+                }}
+              >
+                SIGN UP
+              </button>
+            </div>
+          )}
 
           {/* Cart Button */}
           <button

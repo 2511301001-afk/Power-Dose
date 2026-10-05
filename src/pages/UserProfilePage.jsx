@@ -4,14 +4,7 @@ import DoseBar from '../components/DoseBar';
 
 export default function UserProfilePage() {
   const { user, isConnected, setIsConnected, showToast, setActiveTab } = useApp();
-  const [editing, setEditing] = useState(false);
-  const [userInfo, setUserInfo] = useState(user);
-
-  const handleSaveProfile = e => {
-    e.preventDefault();
-    setEditing(false);
-    showToast('PROFILE UPDATED', 'Your athlete profile details were saved.');
-  };
+  const userInfo = user || {};
 
   if (!isConnected) {
     return (
@@ -23,15 +16,24 @@ export default function UserProfilePage() {
           GUEST SESSION ACTIVE
         </h2>
         <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
-          Connect as Jack Hammer to view your active stack missions, workout intensity meters, and recurring subscriptions.
+          Log in or register to view your active stack missions, workout intensity meters, and recurring subscriptions.
         </p>
-        <button
-          onClick={() => setIsConnected(true)}
-          className="btn-primary"
-          style={{ padding: '0.8rem 2rem' }}
-        >
-          CONNECT AS JACK HAMMER
-        </button>
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <button
+            onClick={() => setActiveTab('login')}
+            className="btn-primary"
+            style={{ padding: '0.8rem 2rem' }}
+          >
+            ATHLETE LOGIN
+          </button>
+          <button
+            onClick={() => setActiveTab('signup')}
+            className="btn-secondary"
+            style={{ padding: '0.8rem 2rem' }}
+          >
+            CREATE ACCOUNT
+          </button>
+        </div>
       </div>
     );
   }

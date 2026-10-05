@@ -77,6 +77,22 @@ class UserProfileResponse(BaseModel):
     stats: dict
     subscriptions: List[dict]
 
+class SignupRequest(BaseModel):
+    name: str
+    email: str
+    password: str
+    rank: Optional[str] = "PRO ATHLETE"
+
+class LoginRequest(BaseModel):
+    email: str
+    password: str
+
+class AuthResponse(BaseModel):
+    message: str
+    token: str
+    user: dict
+
+
 class AdminStatsResponse(BaseModel):
     totalRevenue: str
     revenueGrowth: str

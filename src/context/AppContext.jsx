@@ -6,6 +6,7 @@ const AppContext = createContext();
 export function AppProvider({ children }) {
   const [activeTab, setActiveTab] = useState('home');
   const [isConnected, setIsConnected] = useState(true); // default to connected user state
+  const [user, setUser] = useState(USER_PROFILE);
   const [cart, setCart] = useState([
     { product: PRODUCTS[0], quantity: 1 },
     { product: PRODUCTS[1], quantity: 1 }
@@ -19,6 +20,12 @@ export function AppProvider({ children }) {
 
   // Admin Data state
   const [adminOrders, setAdminOrders] = useState(ADMIN_STATS.recentOrders);
+
+  const logout = () => {
+    setIsConnected(false);
+    showToast('LOGGED OUT', 'Athlete session ended.');
+    setActiveTab('login');
+  };
 
   const showToast = (title, message) => {
     setToast({ title, message });
@@ -101,6 +108,9 @@ export function AppProvider({ children }) {
         setActiveTab,
         isConnected,
         setIsConnected,
+        user,
+        setUser,
+        logout,
         cart,
         addToCart,
         removeFromCart,
@@ -122,7 +132,6 @@ export function AppProvider({ children }) {
         setSearchQuery,
         isSearchOpen,
         setIsSearchOpen,
-        user: USER_PROFILE,
         adminStats: ADMIN_STATS,
         adminOrders,
         addAdminOrder
