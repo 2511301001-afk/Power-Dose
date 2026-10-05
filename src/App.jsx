@@ -11,7 +11,6 @@ import ExplorePage from './pages/ExplorePage';
 import OfferPage from './pages/OfferPage';
 import CheckoutPage from './pages/CheckoutPage';
 import UserProfilePage from './pages/UserProfilePage';
-import AdminPanelPage from './pages/AdminPanelPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 
@@ -32,8 +31,6 @@ export default function App() {
         return <CheckoutPage />;
       case 'profile':
         return <UserProfilePage />;
-      case 'admin':
-        return <AdminPanelPage />;
       case 'login':
         return <LoginPage />;
       case 'signup':

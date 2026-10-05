@@ -111,7 +111,7 @@ export default function Footer() {
               QUICK NAVIGATION
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.9rem' }}>
-              {['home', 'shop', 'explore', 'offers', 'profile', 'admin'].map(tab => (
+              {['home', 'shop', 'explore', 'offers', 'profile'].map(tab => (
                 <li
                   key={tab}
                   onClick={() => setActiveTab(tab)}

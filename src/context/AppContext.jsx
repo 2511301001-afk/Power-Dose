@@ -5,8 +5,52 @@ const AppContext = createContext();
 
 export function AppProvider({ children }) {
   const [activeTab, setActiveTab] = useState('home');
-  const [isConnected, setIsConnected] = useState(true); // default to connected user state
-  const [user, setUser] = useState(USER_PROFILE);
+
+  // Load persisted session or default to logged-out state (Guest)
+  const [user, setUserState] = useState(() => {
+    try {
+      const savedUser = localStorage.getItem('powerdose_active_user');
+      return savedUser ? JSON.parse(savedUser) : null;
+    } catch {
+      return null;
+    }
+  });
+
+  const [isConnected, setIsConnected] = useState(() => {
+    try {
+      const savedUser = localStorage.getItem('powerdose_active_user');
+      return Boolean(savedUser);
+    } catch {
+      return false;
+    }
+  });
+
+  const setUser = (userData) => {
+    setUserState(userData);
+    if (userData) {
+      setIsConnected(true);
+      try {
+        localStorage.setItem('powerdose_active_user', JSON.stringify(userData));
+      } catch (e) {
+        console.warn('LocalStorage save error:', e);
+      }
+    } else {
+      setIsConnected(false);
+      try {
+        localStorage.removeItem('powerdose_active_user');
+      } catch (e) {
+        console.warn('LocalStorage remove error:', e);
+      }
+    }
+  };
+
+  const logout = () => {
+    setUser(null);
+    setIsConnected(false);
+    showToast('LOGGED OUT', 'Athlete session ended successfully.');
+    setActiveTab('home');
+  };
+
   const [cart, setCart] = useState([
     { product: PRODUCTS[0], quantity: 1 },
     { product: PRODUCTS[1], quantity: 1 }
@@ -17,15 +61,6 @@ export function AppProvider({ children }) {
   const [toast, setToast] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-
-  // Admin Data state
-  const [adminOrders, setAdminOrders] = useState(ADMIN_STATS.recentOrders);
-
-  const logout = () => {
-    setIsConnected(false);
-    showToast('LOGGED OUT', 'Athlete session ended.');
-    setActiveTab('login');
-  };
 
   const showToast = (title, message) => {
     setToast({ title, message });
@@ -96,11 +131,6 @@ export function AppProvider({ children }) {
   const total = Math.max(0, subtotal - discountAmount + shipping);
   const totalItemsCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  const addAdminOrder = newOrder => {
-    setAdminOrders(prev => [newOrder, ...prev]);
-    showToast('ADMIN ACTION', `New order ${newOrder.id} created successfully.`);
-  };
-
   return (
     <AppContext.Provider
       value={{
@@ -131,10 +161,7 @@ export function AppProvider({ children }) {
         searchQuery,
         setSearchQuery,
         isSearchOpen,
-        setIsSearchOpen,
-        adminStats: ADMIN_STATS,
-        adminOrders,
-        addAdminOrder
+        setIsSearchOpen
       }}
     >
       {children}

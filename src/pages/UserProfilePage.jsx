@@ -104,15 +104,15 @@ export default function UserProfilePage() {
             ACTIVE MISSION LOG
           </div>
           <div className="font-display" style={{ fontSize: '1.6rem', color: '#fff', marginBottom: '0.5rem' }}>
-            MISSION: {userInfo.activeMission.orderId}
+            MISSION: {userInfo.activeMission?.orderId || '#PD-WELCOME-1'}
           </div>
           <div style={{ fontSize: '0.9rem', color: 'var(--primary-yellow)', fontWeight: 800, marginBottom: '1rem' }}>
-            {userInfo.activeMission.status}
+            {userInfo.activeMission?.status || 'WELCOME STACK DISPATCHED'}
           </div>
           <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 1.6 }}>
-            <div>• ESTIMATED DELIVERY: {userInfo.activeMission.estDelivery}</div>
-            <div>• ITEMS INCLUDED: {userInfo.activeMission.itemsCount} FORMULAS</div>
-            <div>• TOTAL PAID: ₹{userInfo.activeMission.totalAmount}</div>
+            <div>• ESTIMATED DELIVERY: {userInfo.activeMission?.estDelivery || '3 DAYS VIA SPEED EXPRESS'}</div>
+            <div>• ITEMS INCLUDED: {userInfo.activeMission?.itemsCount || 1} FORMULAS</div>
+            <div>• TOTAL PAID: ₹{userInfo.activeMission?.totalAmount ?? 0}</div>
           </div>
 
           <button onClick={() => setActiveTab('checkout')} className="btn-primary" style={{ width: '100%', padding: '0.75rem' }}>
@@ -123,10 +123,10 @@ export default function UserProfilePage() {
         {/* Stats Summary */}
         <div className="card-surface" style={{ padding: '1.75rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
           {[
-            { label: 'TOTAL ORDERS', val: userInfo.stats.totalOrders },
-            { label: 'STACK POINTS', val: userInfo.stats.stackPoints },
-            { label: 'WORKOUTS LOGGED', val: userInfo.stats.workoutsCompleted },
-            { label: 'INTENSITY SCORE', val: userInfo.stats.intensityScore }
+            { label: 'TOTAL ORDERS', val: userInfo.stats?.totalOrders ?? 1 },
+            { label: 'STACK POINTS', val: userInfo.stats?.stackPoints ?? 500 },
+            { label: 'WORKOUTS LOGGED', val: userInfo.stats?.workoutsCompleted ?? 12 },
+            { label: 'INTENSITY SCORE', val: userInfo.stats?.intensityScore || '8.5 / 10' }
           ].map((st, idx) => (
             <div key={idx} style={{ backgroundColor: '#0c0f0f', padding: '1.25rem', border: '1px solid #2a2a2a' }}>
               <div style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--text-muted)' }}>{st.label}</div>
@@ -144,41 +144,47 @@ export default function UserProfilePage() {
           ACTIVE STACK SUBSCRIPTIONS
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          {userInfo.subscriptions.map((sub, i) => (
-            <div
-              key={i}
-              style={{
-                backgroundColor: '#0c0f0f',
-                padding: '1.25rem 1.5rem',
-                border: '1px solid #2a2a2a',
-                display: 'flex',
-                justify: 'space-between',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: '1rem'
-              }}
-            >
-              <div>
-                <div className="font-display" style={{ fontSize: '1.2rem', color: '#fff' }}>{sub.name}</div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Auto-replenish: {sub.frequency}</div>
+        {(userInfo.subscriptions && userInfo.subscriptions.length > 0) ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            {userInfo.subscriptions.map((sub, i) => (
+              <div
+                key={i}
+                style={{
+                  backgroundColor: '#0c0f0f',
+                  padding: '1.25rem 1.5rem',
+                  border: '1px solid #2a2a2a',
+                  display: 'flex',
+                  justify: 'space-between',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                  gap: '1rem'
+                }}
+              >
+                <div>
+                  <div className="font-display" style={{ fontSize: '1.2rem', color: '#fff' }}>{sub.name}</div>
+                  <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Auto-replenish: {sub.frequency}</div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                  <span className="badge-yellow">{sub.status}</span>
+                  <span className="font-display" style={{ fontSize: '1.3rem', color: 'var(--primary-yellow)' }}>
+                    ₹{sub.price}
+                  </span>
+                  <button
+                    onClick={() => showToast('SUBSCRIPTION UPDATED', 'Next delivery paused for 15 days.')}
+                    className="btn-outline"
+                    style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem' }}
+                  >
+                    PAUSE
+                  </button>
+                </div>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                <span className="badge-yellow">{sub.status}</span>
-                <span className="font-display" style={{ fontSize: '1.3rem', color: 'var(--primary-yellow)' }}>
-                  ₹{sub.price}
-                </span>
-                <button
-                  onClick={() => showToast('SUBSCRIPTION UPDATED', 'Next delivery paused for 15 days.')}
-                  className="btn-outline"
-                  style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem' }}
-                >
-                  PAUSE
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div style={{ padding: '1.5rem', textAlign: 'center', color: 'var(--text-muted)', backgroundColor: '#0c0f0f', border: '1px dashed #2a2a2a' }}>
+            NO ACTIVE RECURRING SUBSCRIPTIONS. EXPLORE THE SHOP TO SUBSCRIBE & SAVE 15%.
+          </div>
+        )}
       </div>
     </div>
   );

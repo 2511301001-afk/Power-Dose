@@ -3,8 +3,9 @@ import { useApp } from '../context/AppContext';
 import { EXPLORE_ARTICLES, PRODUCTS } from '../data/mockData';
 
 export default function ExplorePage() {
-  const { addToCart } = useApp();
+  const { addToCart, showToast } = useApp();
   const [activeCategory, setActiveCategory] = useState('ALL');
+  const [selectedArticle, setSelectedArticle] = useState(null);
 
   const categories = ['ALL', 'Training Science', 'Recovery Protocols', 'Supplement Stacks', 'Dietary Tactics'];
 
@@ -95,7 +96,7 @@ export default function ExplorePage() {
               <button
                 className="btn-primary"
                 style={{ padding: '0.6rem 1.25rem', fontSize: '0.9rem', marginLeft: 'auto' }}
-                onClick={() => alert(`Opening Protocol: ${featured.title}`)}
+                onClick={() => setSelectedArticle(featured)}
               >
                 READ FULL PROTOCOL →
               </button>
@@ -134,7 +135,7 @@ export default function ExplorePage() {
               <button
                 className="btn-outline"
                 style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem' }}
-                onClick={() => alert(`Opening article: ${art.title}`)}
+                onClick={() => setSelectedArticle(art)}
               >
                 READ ARTICLE
               </button>
@@ -167,6 +168,94 @@ export default function ExplorePage() {
           ))}
         </div>
       </div>
+
+      {/* Article Detail Modal */}
+      {selectedArticle && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0,0,0,0.85)',
+            backdropFilter: 'blur(5px)',
+            zIndex: 2000,
+            display: 'flex',
+            alignItems: 'center',
+            justify: 'center',
+            padding: '1.5rem'
+          }}
+          onClick={() => setSelectedArticle(null)}
+        >
+          <div
+            className="card-surface animate-fade-in"
+            style={{
+              maxWidth: '680px',
+              width: '100%',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+              backgroundColor: '#0c0f0f',
+              border: '2px solid var(--primary-yellow)',
+              padding: '2.5rem',
+              position: 'relative'
+            }}
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedArticle(null)}
+              style={{
+                position: 'absolute',
+                top: '1rem',
+                right: '1rem',
+                background: 'none',
+                border: 'none',
+                color: '#fff',
+                cursor: 'pointer'
+              }}
+            >
+              <span className="material-symbols-outlined" style={{ fontSize: '28px' }}>close</span>
+            </button>
+
+            <span className="badge-yellow" style={{ marginBottom: '0.75rem' }}>{selectedArticle.category}</span>
+            <h2 className="font-display" style={{ fontSize: '2rem', color: '#fff', marginBottom: '0.5rem' }}>
+              {selectedArticle.title}
+            </h2>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+              BY {selectedArticle.author} • {selectedArticle.date} • {selectedArticle.readTime}
+            </div>
+
+            <img
+              src={selectedArticle.image}
+              alt={selectedArticle.title}
+              style={{ width: '100%', height: '260px', objectFit: 'cover', marginBottom: '1.5rem', border: '1px solid #2a2a2a' }}
+            />
+
+            <p style={{ color: 'var(--text-main)', lineHeight: 1.7, marginBottom: '1.5rem', fontSize: '1rem' }}>
+              {selectedArticle.summary}
+            </p>
+
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+              {selectedArticle.tags?.map(t => (
+                <span key={t} style={{ backgroundColor: 'var(--bg-container)', color: 'var(--primary-yellow)', fontSize: '0.75rem', fontWeight: 800, padding: '0.25rem 0.6rem', border: '1px solid #2a2a2a' }}>
+                  #{t}
+                </span>
+              ))}
+            </div>
+
+            <button
+              onClick={() => {
+                showToast('ARTICLE BOOKMARKED', 'Protocol saved to your personal library.');
+                setSelectedArticle(null);
+              }}
+              className="btn-primary"
+              style={{ width: '100%', padding: '0.8rem' }}
+            >
+              BOOKMARK PROTOCOL
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

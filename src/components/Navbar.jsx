@@ -22,8 +22,7 @@ export default function Navbar() {
     { id: 'shop', label: 'SHOP', icon: 'grid_view' },
     { id: 'explore', label: 'EXPLORE', icon: 'local_fire_department' },
     { id: 'offers', label: 'OFFERS', icon: 'local_offer' },
-    { id: 'profile', label: 'PROFILE', icon: 'person' },
-    { id: 'admin', label: 'ADMIN PORTAL', icon: 'admin_panel_settings' }
+    { id: 'profile', label: 'PROFILE', icon: 'person' }
   ];
 
   return (
