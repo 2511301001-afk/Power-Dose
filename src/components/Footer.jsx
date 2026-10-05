@@ -76,8 +76,15 @@ export default function Footer() {
         >
           {/* Col 1: Brand Info */}
           <div>
-            <div className="font-display" style={{ fontSize: '1.8rem', marginBottom: '0.75rem' }}>
-              POWER<span style={{ color: 'var(--primary-yellow)' }}>DOSE</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+              <img
+                src="/logo.png"
+                alt="PowerDose Supplements Logo"
+                style={{ width: '42px', height: '42px', objectFit: 'contain', borderRadius: '50%', border: '1px solid var(--primary-yellow)' }}
+              />
+              <div className="font-display" style={{ fontSize: '1.8rem' }}>
+                POWER<span style={{ color: 'var(--primary-yellow)' }}>DOSE</span>
+              </div>
             </div>
             <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '1rem', lineHeight: 1.6 }}>
               Engineering raw power, neurological focus, and uncompromised athletic performance. Made for high performers.

@@ -83,22 +83,18 @@ export default function SignupPage() {
 
         {/* Header Title */}
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div
+          <img
+            src="/logo.png"
+            alt="PowerDose Supplements Logo"
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justify: 'center',
-              backgroundColor: 'var(--primary-yellow)',
-              color: '#0c0f0f',
-              width: '50px',
-              height: '50px',
+              width: '64px',
+              height: '64px',
+              objectFit: 'contain',
+              borderRadius: '50%',
+              border: '2px solid var(--primary-yellow)',
               marginBottom: '1rem'
             }}
-          >
-            <span className="material-symbols-outlined" style={{ fontSize: '32px', fontWeight: 'bold' }}>
-              person_add
-            </span>
-          </div>
+          />
           <h1 className="font-display" style={{ fontSize: '2.2rem', color: '#fff', letterSpacing: '0.05em' }}>
             JOIN THE <span style={{ color: 'var(--primary-yellow)' }}>SQUAD</span>
           </h1>

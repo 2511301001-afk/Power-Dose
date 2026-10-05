@@ -76,24 +76,21 @@ export default function Navbar() {
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
-            gap: '0.5rem',
+            gap: '0.75rem',
             userSelect: 'none'
           }}
         >
-          <div
+          <img
+            src="/logo.png"
+            alt="PowerDose Supplements Logo"
             style={{
-              backgroundColor: 'var(--primary-yellow)',
-              color: '#0c0f0f',
-              padding: '0.35rem 0.5rem',
-              display: 'flex',
-              alignItems: 'center',
-              justify: 'center'
+              height: '48px',
+              width: '48px',
+              objectFit: 'contain',
+              borderRadius: '50%',
+              border: '1px solid var(--primary-yellow)'
             }}
-          >
-            <span className="material-symbols-outlined" style={{ fontSize: '24px', fontWeight: 'bold' }}>
-              bolt
-            </span>
-          </div>
+          />
           <div>
             <div
               className="font-display"
@@ -107,7 +104,7 @@ export default function Navbar() {
               POWER<span style={{ color: 'var(--primary-yellow)' }}>DOSE</span>
             </div>
             <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-              HIGH PERFORMANCE NUTRITION
+              SUPPLEMENTS
             </div>
           </div>
         </div>
