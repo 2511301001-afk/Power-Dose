@@ -14,10 +14,22 @@ export default function CartDrawer() {
     total,
     appliedPromo,
     applyPromoCode,
-    setActiveTab
+    setActiveTab,
+    isConnected,
+    showToast
   } = useApp();
 
   const [promoInput, setPromoInput] = useState('');
+
+  const handleProceedToCheckout = () => {
+    setIsCartOpen(false);
+    if (!isConnected) {
+      showToast('LOGIN REQUIRED', 'Please log in or create an account to proceed to checkout.');
+      setActiveTab('login');
+    } else {
+      setActiveTab('checkout');
+    }
+  };
 
   if (!isCartOpen) return null;
 
@@ -210,10 +222,7 @@ export default function CartDrawer() {
             </div>
 
             <button
-              onClick={() => {
-                setIsCartOpen(false);
-                setActiveTab('checkout');
-              }}
+              onClick={handleProceedToCheckout}
               className="btn-primary"
               style={{ width: '100%', padding: '0.9rem', fontSize: '1.1rem' }}
             >

@@ -13,19 +13,20 @@ export default function CheckoutPage() {
     clearCart,
     showToast,
     setActiveTab,
-    user
+    user,
+    isConnected
   } = useApp();
 
-  const [step, setStep] = useState(1); // 1: Info, 2: Payment, 3: Confirmation
-  const [formData, setFormData] = useState({
-    firstName: 'Jack',
-    lastName: 'Hammer',
-    email: 'jack.hammer@powerdose.com',
+  const [step, setStep] = useState(1);
+  const [formData, setFormData] = useState(() => ({
+    firstName: user?.name ? user.name.split(' ')[0] : '',
+    lastName: user?.name && user.name.split(' ').length > 1 ? user.name.split(' ').slice(1).join(' ') : '',
+    email: user?.email || '',
     address: '742 Hyper-G Street, Suite 500',
     city: 'Austin',
     zip: '78701',
     paymentMethod: 'credit_card'
-  });
+  }));
 
   const [orderConfirmed, setOrderConfirmed] = useState(false);
   const [confirmedOrderId, setConfirmedOrderId] = useState(null);
@@ -38,6 +39,38 @@ export default function CheckoutPage() {
     clearCart();
     showToast('ORDER SECURED', `Mission ${newId} dispatched to Speed Express.`);
   };
+
+  if (!isConnected) {
+    return (
+      <div style={{ maxWidth: '640px', margin: '4rem auto', padding: '3.5rem 2rem', textAlign: 'center' }} className="card-surface animate-fade-in">
+        <span className="material-symbols-outlined" style={{ fontSize: '64px', color: 'var(--primary-yellow)' }}>
+          lock
+        </span>
+        <h2 className="font-display" style={{ fontSize: '2.2rem', marginTop: '1rem', color: '#fff' }}>
+          LOGIN OR SIGN UP TO CHECKOUT
+        </h2>
+        <p style={{ color: 'var(--text-muted)', margin: '0.8rem 0 2rem', lineHeight: 1.6 }}>
+          You have items in your stack! Please log in to your account or register a new athlete profile to complete your order and receive your Stack Points.
+        </p>
+        <div style={{ display: 'flex', gap: '1.25rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <button
+            onClick={() => setActiveTab('login')}
+            className="btn-primary"
+            style={{ padding: '0.85rem 2.25rem' }}
+          >
+            ATHLETE LOGIN
+          </button>
+          <button
+            onClick={() => setActiveTab('signup')}
+            className="btn-secondary"
+            style={{ padding: '0.85rem 2.25rem' }}
+          >
+            CREATE AN ACCOUNT
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{ maxWidth: '1280px', margin: '2rem auto', padding: '0 1.5rem' }} className="animate-fade-in">
